@@ -9,10 +9,31 @@
     <body>
         <a href="agregarAlumnos.jsp">Agregar Alumnos</a>
         <h1>Listado de Alumnos</h1>
-        <ul>
-            <c:forEach items="${alumnos}" var="alumno">
-                <li>${alumno.primer_nombre}</li>
-            </c:forEach>
-        </ul>
+            <table border="1">
+                <tr>
+                    <th>Primer Nombre</th>
+                    <th>Segundo Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>DNI</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Edad</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+                <c:forEach items="${alumnos}" var="alumno">
+                <tr>
+                    <td><a href="control?accion=consultar&idAlumno=${alumno.id_alumno}">${alumno.primer_nombre}</a></td>
+                    <td>${alumno.segundo_nombre}</td>
+                    <td>${alumno.primer_apellido}</td>
+                    <td>${alumno.segundo_apellido}</td>
+                    <td>${alumno.dni}</td>
+                    <td>${alumno.fecha_nacimiento}</td>
+                    <td>${alumno.edad}</td>
+                    <td>${alumno.correo}</td>
+                    <td>${alumno.telefono}</td>
+                </tr>
+                </c:forEach>
+            </table>
     </body>
 </html>

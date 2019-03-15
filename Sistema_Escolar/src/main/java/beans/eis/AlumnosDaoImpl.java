@@ -45,7 +45,6 @@ public class AlumnosDaoImpl implements AlumnosDao
     @Override
     public void deleteAlumnos(Alumnos alumnos)
     {
-        em.merge(alumnos);
-        em.remove(alumnos);
+        em.remove(em.merge(alumnos));
     }
 }

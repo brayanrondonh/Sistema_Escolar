@@ -75,6 +75,11 @@ public class Alumnos implements Serializable
     private String telefono;
 
     public Alumnos() {}
+    
+    public Alumnos(Integer id_alumno)
+    {
+        this.id_alumno = id_alumno;
+    }
 
     public Alumnos(Integer id_alumno, String primer_nombre, String primer_apellido, String dni, String fecha_nacimiento, String correo) {
         this.id_alumno = id_alumno;
