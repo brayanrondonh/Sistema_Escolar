@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 @Stateless
-public class AlumnosServiceImpl implements AlumnoServiceLocal
+public class AlumnosServiceImpl implements AlumnoServiceLocal, AlumnosServiceRemote
 {
     @Inject
     private AlumnosDao alumnoDao;
