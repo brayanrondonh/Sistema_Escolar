@@ -108,7 +108,6 @@ public class Control extends HttpServlet
     
     private void consultarAlumno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("Ingreso en consultar alumno");
         String idAlumnoString = request.getParameter("idAlumno");
         int idAlumno;
         if(idAlumnoString != null)

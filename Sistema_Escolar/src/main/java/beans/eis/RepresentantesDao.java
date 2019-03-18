@@ -4,7 +4,7 @@ import beans.domain.Representantes;
 import java.util.List;
 import javax.ejb.Local;
 
-@Local
+
 public interface RepresentantesDao
 {
     public List<Representantes> findAllRepresentantes();

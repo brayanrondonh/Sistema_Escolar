@@ -20,7 +20,7 @@
             </tr>
             <c:forEach items="#{representantes}" var="rep">
                 <tr>
-                    <td>${rep.nombre}</td>
+                    <td><a href="representantes?accion=consultar&idRepresentante=${rep.id_representante}">${rep.nombre}</a></td>
                     <td>${rep.apellido}</td>
                     <td>${rep.dni}</td>
                     <td>${rep.parentesco}</td>

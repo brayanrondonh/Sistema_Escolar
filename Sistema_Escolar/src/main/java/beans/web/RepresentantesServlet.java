@@ -24,6 +24,14 @@ public class RepresentantesServlet extends HttpServlet
         {
             this.agregarRepresentantes(request, reponse);
         }
+        else if(accion != null && accion.equals("consultar"))
+        {
+            this.consultarRepresentantes(request, reponse);
+        }
+        else if(accion != null && accion.equals("actualizar"))
+        {
+            this.actualizarRepresentante(request, reponse);
+        }
         else
         {
             this.listarRepresentantes(request, reponse);
@@ -67,6 +75,83 @@ public class RepresentantesServlet extends HttpServlet
             e.printStackTrace();
         }
         this.listarRepresentantes(request, response);
+    }
+    
+    public void consultarRepresentantes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String idRepresentanteString = request.getParameter("idRepresentante");
+        if(idRepresentanteString != null)
+        {
+            int idRepresentante = Integer.parseInt(idRepresentanteString);
+            try
+            {
+                Representantes representante = new Representantes(idRepresentante);
+                representante = this.rsl.buscarRepresentantePorId(representante);
+                System.out.println(representante);
+                request.setAttribute("representante", representante);
+                request.getRequestDispatcher("/consultarRepresentante.jsp").forward(request, response);
+            }
+            catch(Exception e)
+            {
+                System.out.println("Exploto el consultar");
+                e.printStackTrace();
+            }
+        }        
+    }
+    
+    public void actualizarRepresentante(HttpServletRequest request, HttpServletResponse responnse) throws ServletException, IOException
+    {
+        String idRepresentanteString = request.getParameter("idRepresentante");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String dni = request.getParameter("dni");
+        String parentesco = request.getParameter("parentesco");
+        String correo = request.getParameter("correo");
+        String telefono = request.getParameter("telefono");
+        String modificar = request.getParameter("modificar");
+        String eliminar = request.getParameter("eliminar");
+        int idRepresentante;
+        
+        if(idRepresentanteString != null)
+        {
+            idRepresentante = Integer.parseInt(idRepresentanteString);
+            
+            if(modificar != null && modificar.equals("Modificar"))
+            {
+                Representantes representante = new Representantes(idRepresentante);
+                representante = this.rsl.buscarRepresentantePorId(representante);
+                representante.setNombre(nombre);
+                representante.setApellido(apellido);
+                representante.setDni(dni);
+                representante.setParentesco(parentesco);
+                representante.setCorreo(correo);
+                representante.setTelefono(telefono);
+                
+                try
+                {
+                    this.rsl.modificarRepresentante(representante);
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Exploto el modificar representante");
+                    e.printStackTrace();
+                }
+            }
+            else if (eliminar != null && eliminar.equals("Eliminar"))
+            {
+                Representantes representante = new Representantes(idRepresentante);
+                try
+                {
+                    this.rsl.eliminarRepresentante(representante);
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Exploto el eliminar Representante");
+                    e.printStackTrace();
+                }
+            }
+        }
+        this.listarRepresentantes(request, responnse);
     }
     
     @Override

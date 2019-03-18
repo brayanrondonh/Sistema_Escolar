@@ -28,8 +28,8 @@ public class Representantes implements Serializable
     @Column(name = "id_representante")
     private Integer id_representante;
     
-    @NotNull
     @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
