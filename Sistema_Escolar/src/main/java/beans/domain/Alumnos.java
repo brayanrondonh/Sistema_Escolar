@@ -73,6 +73,10 @@ public class Alumnos implements Serializable
     
     @Size(min = 1,max = 45)
     private String telefono;
+    
+    @JoinColumn(name = "id_representante",referencedColumnName = "id_representante")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Representantes representantes;
 
     public Alumnos() {}
     
@@ -220,6 +224,16 @@ public class Alumnos implements Serializable
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Representantes getRepresentantes()
+    {
+        return representantes;
+    }
+
+    public void setRepresentantes(Representantes representantes)
+    {
+        this.representantes = representantes;
     }
     
     @Override

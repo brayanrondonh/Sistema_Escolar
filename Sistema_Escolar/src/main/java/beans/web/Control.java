@@ -1,6 +1,7 @@
 package beans.web;
 
 import beans.domain.Alumnos;
+import beans.domain.Representantes;
 import beans.service.AlumnoServiceLocal;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -34,6 +35,10 @@ public class Control extends HttpServlet
         else if(accion != null && accion.equals("modificar"))
         {
             this.modificarAlumno(request, response);
+        }
+        else if(accion != null && accion.equals("claves"))
+        {
+            this.datosForaneos(request, response);
         }
         else
         {
@@ -203,6 +208,28 @@ public class Control extends HttpServlet
                 System.out.println("Exploto el eliminar alumno");
             }
             this.listarAlumnos(request, response);
+        }
+    }
+    
+    private void datosForaneos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        System.out.println("Entro en las claves foraneas");
+
+            List <Alumnos> alumnos = this.alumnosServiceLocal.listarAlumnos();
+            //alumnos = this.alumnosServiceLocal.encontrarAlumnosPorId(alumnos);
+            System.out.println(alumnos);
+            this.imprimirRepresentantes(alumnos);
+            /*System.out.println("Representante: "+alumnos.getRepresentantes());
+            request.setAttribute("alumnos", alumnos);
+            request.getRequestDispatcher("/foranea.jsp").forward(request, response);*/
+    }
+    
+    private void imprimirRepresentantes(List<Alumnos> alumnos)
+    {
+        System.out.println("Entro en imprimir representantes");
+        for(Alumnos alumno:alumnos)
+        {
+            System.out.println("Alumnos: "+alumno.getRepresentantes());            
         }
     }
     

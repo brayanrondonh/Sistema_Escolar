@@ -3,7 +3,6 @@ package beans.eis;
 import beans.domain.Alumnos;
 import java.util.List;
 
-
 public interface AlumnosDao
 {
     public List<Alumnos> findAllAlumnos();
