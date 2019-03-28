@@ -1,0 +1,154 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	background: #272f32;
+}
+
+#all
+{
+	width: 100%;
+	height: 100%;
+}
+
+#titulo
+{
+	text-align: center;
+	color: #79bdc6;
+	font-family: verdana;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+#cuadroPrincipal
+{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	background: #ffffff;
+	padding: 35px 0;
+	border-radius: 10px;
+}
+
+#cuadros
+{
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#cuadros .seccion
+{
+	width: 200px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-decoration: none;
+	margin: 25px 0;
+	padding: 15px 0;
+	border: 1px solid #272f32;
+	border-radius: 25px;
+	transition: all .5s;
+}
+
+#cuadros .seccion:hover
+{
+	border-radius: 15px;
+	border-color: #ff3526;
+}
+
+#cuadros .seccion .icon
+{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	font-family: icomoon;
+	color: #272f32;
+	font-size: 5em;
+}
+
+#cuadros .seccion:nth-of-type(1) .icon::before
+{
+	content: "\e971";
+}
+
+#cuadros .seccion:nth-of-type(2) .icon::before
+{
+	content: "\e976";
+}
+
+#cuadros .seccion:nth-of-type(3) .icon::before
+{
+	content: "\e920";
+}
+
+#cuadros .seccion:nth-of-type(4) .icon::before
+{
+	content: "\e921";
+}
+
+#cuadros .seccion:nth-of-type(5) .icon::before
+{
+	content: "\e99c";
+}
+
+#cuadros .seccion h3
+{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #79bdc6;
+}
+
+@media screen and (min-width: 480px)
+{
+	
+}
+
+@media screen and (min-width: 600px)
+{
+	#titulo
+	{
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	#cuadros
+	{
+		width: 80%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (min-width: 767px)
+{
+	#titulo
+	{
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+
+	#cuadros
+	{
+		width: 90%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (min-width: 950px)
+{
+	
+}
