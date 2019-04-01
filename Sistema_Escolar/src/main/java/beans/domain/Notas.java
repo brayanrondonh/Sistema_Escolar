@@ -28,7 +28,7 @@ public class Notas implements Serializable
     @Column(name = "nota")
     private double nota;
     
-    @JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
+    /*@JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
     private Materias materias;
     
@@ -38,13 +38,18 @@ public class Notas implements Serializable
     
     @JoinColumn(name = "id_docente", referencedColumnName = "id_docente")
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
-    private Docentes docentes;
+    private Docentes docentes;*/
     
     public Notas() {}
     
     public Notas(int id_nota)
     {
         this.id_nota = id_nota;
+    }
+    
+    public Notas(double nota)
+    {
+        this.nota = nota;
     }
     
     public Notas(int id_nota, double nota)
@@ -69,7 +74,7 @@ public class Notas implements Serializable
         this.nota = nota;
     }
 
-    public Materias getMaterias() {
+    /*public Materias getMaterias() {
         return materias;
     }
 
@@ -91,7 +96,7 @@ public class Notas implements Serializable
 
     public void setDocentes(Docentes docentes) {
         this.docentes = docentes;
-    }
+    }*/
     
     @Override
     public String toString()
