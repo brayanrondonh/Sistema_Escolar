@@ -84,6 +84,11 @@ public class Alumnos implements Serializable
     {
         this.id_alumno = id_alumno;
     }
+    
+    public Alumnos(String dni)
+    {
+        this.dni = dni;
+    }
 
     public Alumnos(Integer id_alumno, String primer_nombre, String primer_apellido, String dni, String fecha_nacimiento, String correo) {
         this.id_alumno = id_alumno;

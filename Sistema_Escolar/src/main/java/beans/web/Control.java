@@ -36,9 +36,13 @@ public class Control extends HttpServlet
         {
             this.modificarAlumno(request, response);
         }
-        else if(accion != null && accion.equals("claves"))
+        /*else if(accion != null && accion.equals("claves"))
         {
             this.datosForaneos(request, response);
+        }*/
+        else if(accion != null && accion.equals("buscarFicha"))
+        {
+            this.buscarFichaAlumno(request, response);
         }
         else
         {
@@ -64,11 +68,19 @@ public class Control extends HttpServlet
     
     private void agregarAlumno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        //Datos del Representante
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String dnip = request.getParameter("dnip");
+        String parentesco = request.getParameter("parentesco");
+        String correop = request.getParameter("correop");
+        String telefonop = request.getParameter("telefonop");
+        //Datos del alumno
         String nombre1 = request.getParameter("primer_nombre");
         String nombre2 = request.getParameter("segundo_nombre");
         String apellido1 = request.getParameter("primer_apellido");
         String apellido2 = request.getParameter("segundo_apellido");
-        String dni = request.getParameter("dni");
+        String dni = request.getParameter("dnia");
         String fecha_nacimiento = request.getParameter("fecha_nacimiento");
         String correo = request.getParameter("correo");
         String telefono = request.getParameter("telefono");
@@ -87,6 +99,14 @@ public class Control extends HttpServlet
             e.printStackTrace();
         }
         
+        Representantes representantes = new Representantes(nombre,apellido,dnip,parentesco,correop,telefonop);
+        /*representantes.setNombre(nombre);
+        representantes.setApellido(apellido);
+        representantes.setDni(dnip);
+        representantes.setParentesco(parentesco);
+        representantes.setCorreo(correop);
+        representantes.setTelefono(telefonop);*/
+        
         Alumnos alumnos = new Alumnos();
         alumnos.setPrimer_nombre(nombre1);
         alumnos.setSegundo_nombre(nombre2);
@@ -97,6 +117,7 @@ public class Control extends HttpServlet
         alumnos.setEdad(edad);
         alumnos.setCorreo(correo);
         alumnos.setTelefono(telefono);
+        alumnos.setRepresentantes(representantes);
         
         try
         {
@@ -211,7 +232,16 @@ public class Control extends HttpServlet
         }
     }
     
-    private void datosForaneos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    private void buscarFichaAlumno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String dni = request.getParameter("dni");
+        System.out.println(dni);
+        Alumnos alumno = new Alumnos(dni);
+        alumno = this.alumnosServiceLocal.encontrarAlumnosPorDni(alumno);
+        System.out.println(alumno);
+    }
+    
+   /* private void datosForaneos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("Entro en las claves foraneas");
 
@@ -221,8 +251,10 @@ public class Control extends HttpServlet
             this.imprimirRepresentantes(alumnos);
             /*System.out.println("Representante: "+alumnos.getRepresentantes());
             request.setAttribute("alumnos", alumnos);
-            request.getRequestDispatcher("/foranea.jsp").forward(request, response);*/
+            request.getRequestDispatcher("/foranea.jsp").forward(request, response);
     }
+    
+    
     
     private void imprimirRepresentantes(List<Alumnos> alumnos)
     {
@@ -231,7 +263,7 @@ public class Control extends HttpServlet
         {
             System.out.println("Alumnos: "+alumno.getRepresentantes());            
         }
-    }
+    }*/
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

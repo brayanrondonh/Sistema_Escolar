@@ -11,6 +11,8 @@ public interface AlumnoServiceLocal
     
     public Alumnos encontrarAlumnosPorId(Alumnos alumnos);
     
+    public Alumnos encontrarAlumnosPorDni(Alumnos alumnos);
+    
     public Alumnos encontrarAlumnosPorCorreo(Alumnos alumnos);
     
     public void registrarAlumno(Alumnos alumnos);

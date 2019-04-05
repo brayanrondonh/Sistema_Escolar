@@ -1,0 +1,512 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: verdana;
+}
+
+body
+{
+	background: #272f32;
+}
+
+#all
+{
+	width: 100%;
+	height: 100%;
+}
+
+#titulo
+{
+	text-align: center;
+	color: #79bdc6;
+	font-family: verdana;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+#cuadroPrincipal
+{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	background: #ffffff;
+	padding: 35px 0;
+	border-radius: 10px;
+}
+
+#cuadros
+{
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#cuadros .seccion
+{
+	width: 200px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-decoration: none;
+	margin: 25px 0;
+	padding: 15px 0;
+	border: 1px solid #272f32;
+	border-radius: 25px;
+	transition: all .5s;
+}
+
+#cuadros .seccion:hover
+{
+	border-radius: 15px;
+	border-color: #ff3526;
+}
+
+#cuadros .seccion .icon
+{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	font-family: icomoon;
+	color: #272f32;
+	font-size: 5em;
+}
+
+#cuadros .seccion:nth-of-type(1) .icon::before
+{
+	content: "\e971";
+}
+
+#cuadros .seccion:nth-of-type(2) .icon::before
+{
+	content: "\e976";
+}
+
+#cuadros .seccion:nth-of-type(3) .icon::before
+{
+	content: "\e920";
+}
+
+#cuadros .seccion:nth-of-type(4) .icon::before
+{
+	content: "\e921";
+}
+
+#cuadros .seccion:nth-of-type(5) .icon::before
+{
+	content: "\e99c";
+}
+
+#cuadros .seccion h3
+{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #79bdc6;
+}
+
+.contenedores_registros
+{
+	/*background: red;*/
+	width: 80%;
+	margin: 15px auto;
+}
+
+.contenedores_registros:nth-of-type(2)
+{
+	margin-top: 50px;
+}
+
+.contenedores_registros.botones
+{
+	margin-top: 55px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 50%;
+}
+
+.contenedores_registros.botones input
+{
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	background: #ff3526;
+	color: #fff;
+}
+
+.secciones_registro_principal
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#carnet
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	/*background: pink;*/
+	width: 100%;
+}
+
+#vista_previa1,
+#vista_previa2
+{
+	width: 170px;
+	height: 170px;
+	background: #daeaef;
+	margin-bottom: 15px;
+	border-radius: 10px;
+}
+
+#vista_previa1 img,
+#vista_previa2 img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.div_file
+{
+	background: #ff3526;
+	padding: 10px;
+	width: 130px;
+	position: relative;
+	margin-bottom: 50px;
+	border-radius: 5px;
+}
+
+p.texto_cargar_archivo
+{
+	text-align: center;
+	color: #fff;
+	font-family: verdana;
+	font-size: .7em;
+}
+
+input#btn_imagen1,
+input#btn_imagen2
+{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.informacion_registro
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	background: #daeaef;
+	border-radius: 5px;
+}
+
+.informacion_registro h3
+{
+	text-align: center;
+	color: #272f32;
+	margin-bottom: 30px;
+	font-family: verdana;
+	font-size: 1.1em;
+	margin-top: 25px;
+}
+
+.informacion_registro label
+{
+	display: none;
+}
+
+.informacion_registro input
+{
+	width: 90%;
+	height: 30px;
+	margin-bottom: 25px;
+	border: none;
+	border-radius: 5px;
+}
+
+#registro_nota
+{
+	margin-bottom: 25px;
+	width: 90%;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+}
+
+.informacion_registro input::last-child
+{
+	margin-bottom: 0;
+}
+
+.informacion_registro input::-webkit-input-placeholder
+{
+	color: #272f32;
+	margin-left: 5px;
+}
+
+.informacion_registro input:focus
+{
+	outline: 0px;
+}
+
+.table-responsive
+{
+	margin: 0 auto;
+	width: 80%;
+}
+
+.table-responsive.materias
+{
+	margin: 0 auto;
+	width: 50%;
+}
+
+.table-responsive.materias_alumno
+{
+	margin-top: 75px;
+}
+
+@media screen and (min-width: 480px)
+{
+	/*body
+	{
+		background: yellow;
+	}*/
+}
+
+@media screen and (min-width: 600px)
+{
+	/*body
+	{
+		background: green;
+	}*/
+
+	#titulo
+	{
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	#cuadros
+	{
+		width: 80%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.contenedores_registros.botones
+	{
+		width: 40%;
+	}
+
+	.contenedores_registros:nth-of-type(2)
+	{
+		margin-top: 70px;
+	}
+
+	#vista_previa1,
+	#vista_previa2
+	{
+		width: 200px;
+		height: 200px;
+	}
+
+	.div_file
+	{
+		width: 150px;
+	}
+
+	p.texto_cargar_archivo
+	{
+		font-size: .8em;
+	}
+
+
+	.informacion_registro
+	{
+		width: 80%;
+	}
+
+	.informacion_registro h3
+	{
+		font-size: 1.2em;
+	}
+
+	.informacion_registro input
+	{
+		width: 90%;
+		height: 35px;
+		margin-bottom: 30px;
+		border: none;
+		border-radius: 7px;
+	}
+
+	.table-responsive.materias
+	{
+		margin: 0 auto;
+		width: 40%;
+	}
+}
+
+@media screen and (min-width: 767px)
+{
+	/*body
+	{
+		background: blue;
+	}*/
+
+	#titulo
+	{
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+
+	#cuadros
+	{
+		width: 90%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.contenedores_registros.botones
+	{
+		width: 35%;
+	}
+
+	.contenedores_registros.botones input
+	{
+		padding: 10px 15px;
+		border-radius: 10px;
+		font-size: 1.1em;
+	}
+
+	.table-responsive.materias
+	{
+		margin: 0 auto;
+		width: 30%;
+	}
+}
+
+@media screen and (min-width: 950px)
+{
+	/*body
+	{
+		background: red;
+	}*/
+
+	#cuadroPrincipal
+	{
+		width: 65%;
+	}
+
+	.contenedores_registros
+	{
+		/*background: red;*/
+		width: 80%;
+		margin: 15px auto;
+	}
+
+	.contenedores_registros:nth-of-type(2)
+	{
+		margin-top: 70px;	
+	}
+
+	.contenedores_registros.botones
+	{
+		width: 30%;
+	}
+
+	.secciones_registro_principal
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: initial;
+	}
+
+	.secciones_registro_principal.registro_materias
+	{
+		justify-content: center;
+	}
+
+	#carnet
+	{
+		justify-content: flex-start;
+		/*background: pink;*/
+		width: 27%;
+	}
+
+	#vista_previa1,
+	#vista_previa2
+	{
+		width: 80%;
+		height: 230px;
+		/*background: cyan;*/
+		margin-bottom: 15px;
+	}
+
+	.informacion_registro
+	{
+		width: 55%;
+		/*background: blue;*/
+	}
+
+	.informacion_registro h3
+	{
+		margin-bottom: 35px;
+		font-size: 1.5em;
+	}
+
+	.informacion_registro label
+	{
+		display: inline-block;
+	}
+
+	.informacion_registro input
+	{
+		width: 50%;
+		margin-bottom: 30px;
+	}
+
+	.informacion_registro input::-webkit-input-placeholder
+	{
+		opacity: 0;
+	}
+
+	.informacion_registro input:focus
+	{
+		outline: 0px;
+	}
+
+	#registro_nota
+	{
+		margin-bottom: 35px;
+		width: 50%;
+	}
+
+	.table-responsive.materias
+	{
+		margin: 0 auto;
+		width: 25%;
+	}
+}

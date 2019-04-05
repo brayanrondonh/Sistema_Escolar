@@ -25,6 +25,12 @@ public class AlumnosServiceImpl implements AlumnoServiceLocal, AlumnosServiceRem
     }
     
     @Override
+    public Alumnos encontrarAlumnosPorDni(Alumnos alumnos)
+    {
+        return alumnoDao.findAlumnosByDni(alumnos);
+    }
+    
+    @Override
     public Alumnos encontrarAlumnosPorCorreo(Alumnos alumnos)
     {
         return alumnoDao.findAlumnosByCorreo(alumnos);

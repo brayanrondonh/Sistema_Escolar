@@ -9,6 +9,8 @@ public interface AlumnosDao
     
     public Alumnos findAlumnosById(Alumnos alumnos);
     
+    public Alumnos findAlumnosByDni(Alumnos alumnos);
+    
     public Alumnos findAlumnosByCorreo(Alumnos alumnos);
     
     public void insertAlumnos(Alumnos alumnos);

@@ -23,21 +23,32 @@
 						<div class="informacion_registro">
 							<h3>Datos del Alumno</h3>
 							<label for="primer_nombre">Primer Nombre</label>
-							<input type="text" name="primer_nombre" placeholder="Primer nombre">
+							<input type="text" name="primer_nombre" placeholder="Primer nombre" readonly="readonly">
 	            			<label for="segundo_nombre">Segundo Nombre</label>
-	            			<input type="text" name="segundo_nombre" placeholder="Segundo nombre">
+	            			<input type="text" name="segundo_nombre" placeholder="Segundo nombre" readonly="readonly">
 	            			<label for="primer_apellido">Primer Apellido</label>
-	            			<input type="text" name="primer_apellido" placeholder="Primer apellido">
+	            			<input type="text" name="primer_apellido" placeholder="Primer apellido" readonly="readonly">
 	            			<label for="segindo_apellido">Segundo Apellido</label>
-	            			<input type="text" name="segundo_apellido" placeholder="Segundo apellido">
+	            			<input type="text" name="segundo_apellido" placeholder="Segundo apellido" readonly="readonly">
 	            			<label for="dni">Dni</label>
-	            			<input type="text" name="dni" placeholder="DNI">
+	            			<input type="text" name="dni" placeholder="DNI" readonly="readonly">
 	            			<label for="fecha_nacimiento">Fecha de nacimiento</label>
-	            			<input type="date" name="fecha_nacimiento" placeholder="dd/mm/aaaa">
+	            			<input type="date" name="fecha_nacimiento" placeholder="dd/mm/aaaa" readonly="readonly">
 	            			<label for="correo">Correo</label>
-	            			<input type="text" name="correo" placeholder="Correo">
+	            			<input type="text" name="correo" placeholder="Correo" readonly="readonly">
 	            			<label for="telefono">Telefono</label>
-	            			<input type="text" name="telefono" placeholder="Telefono">
+	            			<input type="text" name="telefono" placeholder="Telefono" readonly="readonly">
+	            			<label for="docente">Docente</label>
+	            			<select name="docente" id="registro_nota">
+	            				<option value="#">-- Seleccione un docente --</option>
+	            				<option value="Lenguaje">Lenguaje</option>
+	            				<option value="Matématica">Matéematica</option>
+	            				<option value="Física">Física</option>
+	            				<option value="Química">Química</option>
+	            				<option value="Informática">Informática</option>
+	            				<option value="Logíca">Logíca</option>
+	            				<option value="Metodología">Metodología</option>
+	            			</select>
 	            			<label for="materia">Materia</label>
 	            			<select name="materia" id="registro_nota">
 	            				<option value="#">-- Seleccione una materia --</option>

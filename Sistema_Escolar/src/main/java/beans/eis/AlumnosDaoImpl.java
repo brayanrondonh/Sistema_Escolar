@@ -25,6 +25,12 @@ public class AlumnosDaoImpl implements AlumnosDao
     }
     
     @Override
+    public Alumnos findAlumnosByDni(Alumnos alumnos)
+    {
+        return em.find(Alumnos.class, alumnos.getDni());
+    }
+    
+    @Override
     public Alumnos findAlumnosByCorreo(Alumnos alumnos)
     {
         return em.find(Alumnos.class, alumnos.getCorreo());
