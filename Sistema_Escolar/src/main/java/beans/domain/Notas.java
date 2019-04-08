@@ -28,17 +28,17 @@ public class Notas implements Serializable
     @Column(name = "nota")
     private double nota;
     
-    /*@JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     private Materias materias;
     
     @JoinColumn(name = "id_alumno", referencedColumnName = "id_alumno")
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     private Alumnos alumnos;
     
     @JoinColumn(name = "id_docente", referencedColumnName = "id_docente")
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
-    private Docentes docentes;*/
+    @ManyToOne(cascade = {CascadeType.REFRESH})
+    private Docentes docentes;
     
     public Notas() {}
     
@@ -58,6 +58,23 @@ public class Notas implements Serializable
         this.nota = nota;
     }
 
+    public Notas(double nota, Materias materias, Alumnos alumnos, Docentes docentes)
+    {
+        this.nota = nota;
+        this.materias = materias;
+        this.alumnos = alumnos;
+        this.docentes = docentes;
+    }
+
+    public Notas(Integer id_nota, double nota, Materias materias, Alumnos alumnos, Docentes docentes)
+    {
+        this.id_nota = id_nota;
+        this.nota = nota;
+        this.materias = materias;
+        this.alumnos = alumnos;
+        this.docentes = docentes;
+    }
+
     public Integer getId_nota() {
         return id_nota;
     }
@@ -74,7 +91,7 @@ public class Notas implements Serializable
         this.nota = nota;
     }
 
-    /*public Materias getMaterias() {
+    public Materias getMaterias() {
         return materias;
     }
 
@@ -96,11 +113,11 @@ public class Notas implements Serializable
 
     public void setDocentes(Docentes docentes) {
         this.docentes = docentes;
-    }*/
+    }
     
     @Override
     public String toString()
     {
-        return "Notas = {id_notas: "+id_nota+", Nota: "+nota+"}";
+        return "Notas = {id_notas: "+id_nota+", Nota: "+nota+", id_materia: "+materias.getId_materia()+", Docentes: "+docentes.getId_docente()+", Alumnos: "+alumnos.getId_alumno()+"}";
     }
 }

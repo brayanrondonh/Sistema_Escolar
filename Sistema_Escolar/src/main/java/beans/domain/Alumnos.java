@@ -1,6 +1,7 @@
 package beans.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -85,9 +86,10 @@ public class Alumnos implements Serializable
         this.id_alumno = id_alumno;
     }
     
-    public Alumnos(String dni)
+    public Alumnos(String dni,String correo)
     {
         this.dni = dni;
+        this.correo = correo;
     }
 
     public Alumnos(Integer id_alumno, String primer_nombre, String primer_apellido, String dni, String fecha_nacimiento, String correo) {

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="#all">
-	<h1 id="titulo">Registro del Alumno</h1>
+	<h1 id="titulo">Registro de Datos</h1>
 	<form action="representantes" method="post">
         <div id="cuadroPrincipal">
             <div class="contenedores_registros">
@@ -43,7 +43,7 @@
 		</div>
             </div>
             <div class="contenedores_registros botones">
-		<a href="listado_representantes.html"><input type="button" name="atras" value="Atras"></a>
+		<a href="representantes"><input type="button" name="atras" value="Atras"></a>
 		<input type="submit" name="guardar" value="Registrar">
             </div>
 	</div>

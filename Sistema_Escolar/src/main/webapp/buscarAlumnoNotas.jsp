@@ -17,15 +17,15 @@
                     <div class="secciones_registro_principal registro_materias">
 			<div class="informacion_registro">
                             <h3>Ingrese DNI del alumno a evaluar</h3>
-                            <input type="hidden" name="accion" value="agregar">
-                            <label for="materia">Materia</label>
+                            <input type="hidden" name="accion" value="buscar">
+                            <label for="dni">DNI</label>
                             <input type="text" name="dni" placeholder="DNI">
 			</div>
                     </div>
 		</div>
 		<div class="contenedores_registros botones">
-                    <a href="materias"><input type="button" name="atras" value="Atras"></a>
-                    <input type="submit" value="Registrar">
+                    <a href="notas"><input type="button" name="atras" value="Atras"></a>
+                    <input type="submit" value="Buscar">
 		</div>
             </div>
 	</form>

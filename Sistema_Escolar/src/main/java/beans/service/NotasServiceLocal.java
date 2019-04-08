@@ -1,5 +1,6 @@
 package beans.service;
 
+import beans.domain.Alumnos;
 import beans.domain.Notas;
 import java.util.List;
 import javax.ejb.Local;
@@ -16,4 +17,6 @@ public interface NotasServiceLocal
     public void modificarNotas(Notas notas);
     
     public void eliminarNotas(Notas notas);
+    
+    public List<Notas> encontrarNotasPorDni(Alumnos alumnos);
 }

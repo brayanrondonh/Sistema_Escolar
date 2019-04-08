@@ -1,5 +1,6 @@
 package beans.service;
 
+import beans.domain.Alumnos;
 import beans.domain.Notas;
 import beans.eis.NotasDao;
 import java.util.List;
@@ -40,5 +41,11 @@ public class NotasServiceImpl implements NotasServiceLocal, NotasServiceRemote
     public void eliminarNotas(Notas notas)
     {
         notasDao.deleteNotas(notas);
+    }
+    
+    @Override
+    public List<Notas> encontrarNotasPorDni(Alumnos alumnos)
+    {
+        return notasDao.findNotasByDni(alumnos);
     }
 }

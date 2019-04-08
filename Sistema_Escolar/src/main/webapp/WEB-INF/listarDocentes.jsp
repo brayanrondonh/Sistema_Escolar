@@ -39,7 +39,7 @@
 		</table>
             </div>
             <div class="contenedores_registros botones">
-                <a href="listado_docentes.html"><input type="button" name="atras" value="Atras"></a>
+                <a href="index.html"><input type="button" name="atras" value="Atras"></a>
 		<a href="agregarDocentes.jsp"><input type="button" name="atras" value="Agregar Docentes"></a>
             </div>
 	</div>
@@ -49,80 +49,3 @@
 	<script type="text/javascript" src="js/funciones.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <a href="agregarDocentes.jsp">Agregar Docentes</a><br><br>
-        <h1>Listar Docentes</h1>
-        <table border="1">
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-            </tr>
-            <//c:forEach items="$docentes}" var="doc">
-                <tr>
-                    <td><a href="docentes?accion=consultar&id_docente=$doc.id_docente}">$doc.nombre}</a></td>
-                    <td>$doc.apellido}</td>
-                    <td>$doc.dni}</td>
-                    <td>$doc.correo}</td>
-                    <td>$doc.telefono}</td>
-                </tr>
-            <//c:forEach>
-        </table>
-    </body>
-</html>-->

@@ -1,8 +1,15 @@
 package beans.web;
 
+import beans.domain.Alumnos;
+import beans.domain.Docentes;
+import beans.domain.Materias;
 import beans.domain.Notas;
+import beans.service.AlumnoServiceLocal;
+import beans.service.DocentesServiceLocal;
+import beans.service.MateriasServiceLocal;
 import beans.service.NotasServiceLocal;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -14,6 +21,15 @@ public class NotasServlet extends HttpServlet
 {
     @Inject
     NotasServiceLocal nsl;
+    
+    @Inject
+    AlumnoServiceLocal asl;
+    
+    @Inject
+    DocentesServiceLocal dsl;
+    
+    @Inject
+    MateriasServiceLocal msl;
     
     public void controlAccess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -30,6 +46,10 @@ public class NotasServlet extends HttpServlet
         else if(accion != null && accion.equals("actualizar"))
         {
             this.actualizarNotas(request, response);
+        }
+        else if(accion != null && accion.equals("buscar"))
+        {
+            this.buscarAlumno(request, response);
         }
         else
         {
@@ -49,9 +69,21 @@ public class NotasServlet extends HttpServlet
     {
         System.out.println("Ingreso en agregar");
         String nota = request.getParameter("nota");
-        System.out.println(nota);
+        String alumno = request.getParameter("idAlumno");
+        String docente = request.getParameter("docente");
+        String materia = request.getParameter("materia");
+        int alumnos = Integer.parseInt(alumno);
+        Alumnos idAlumno = new Alumnos(alumnos);
+        idAlumno = this.asl.encontrarAlumnosPorId(idAlumno);
+        int docentes = Integer.parseInt(docente);
+        Docentes idDocente = new Docentes(docentes);
+        idDocente = this.dsl.encontrarDocentesPorId(idDocente);
+        int materias = Integer.parseInt(materia);
+        Materias idMateria = new Materias(materias);
+        idMateria = this.msl.encontrarMateriasPorId(idMateria);
+        
         double notas = Double.parseDouble(nota);
-        Notas n = new Notas(notas);
+        Notas n = new Notas(notas, idMateria, idAlumno,idDocente);
         try
         {
             this.nsl.agregarNotas(n);
@@ -107,6 +139,21 @@ public class NotasServlet extends HttpServlet
             }
         }
         this.listarNotas(request, response);
+    }
+    
+    public void buscarAlumno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String dniAlumno = request.getParameter("dni");
+        Alumnos alumno = new Alumnos(dniAlumno,null);
+        alumno = this.asl.encontrarAlumnosPorDni(alumno);
+        
+        List<Docentes>docentes = this.dsl.listarDocentes();
+        List<Materias>materias = this.msl.listarMaterias();
+        
+        request.setAttribute("alumno", alumno);
+        request.setAttribute("materias", materias);
+        request.setAttribute("docentes", docentes);
+        request.getRequestDispatcher("/agregarNotas.jsp").forward(request, response);
     }
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

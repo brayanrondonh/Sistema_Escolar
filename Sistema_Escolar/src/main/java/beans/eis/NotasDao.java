@@ -1,5 +1,6 @@
 package beans.eis;
 
+import beans.domain.Alumnos;
 import beans.domain.Notas;
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface NotasDao
     public void updateNotas(Notas notas);
     
     public void deleteNotas(Notas notas);
+    
+    public List<Notas> findNotasByDni(Alumnos alumnos);
 }

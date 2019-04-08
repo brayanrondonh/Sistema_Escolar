@@ -1,8 +1,12 @@
 package beans.web;
 
 import beans.domain.Alumnos;
+import beans.domain.Materias;
+import beans.domain.Notas;
 import beans.domain.Representantes;
 import beans.service.AlumnoServiceLocal;
+import beans.service.MateriasServiceLocal;
+import beans.service.NotasServiceLocal;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -18,6 +22,12 @@ public class Control extends HttpServlet
 {
     @Inject
     AlumnoServiceLocal alumnosServiceLocal;
+    
+    @Inject
+    MateriasServiceLocal msl;
+    
+    @Inject
+    NotasServiceLocal nsl;
     
     
     protected void control(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -36,10 +46,6 @@ public class Control extends HttpServlet
         {
             this.modificarAlumno(request, response);
         }
-        /*else if(accion != null && accion.equals("claves"))
-        {
-            this.datosForaneos(request, response);
-        }*/
         else if(accion != null && accion.equals("buscarFicha"))
         {
             this.buscarFichaAlumno(request, response);
@@ -100,13 +106,6 @@ public class Control extends HttpServlet
         }
         
         Representantes representantes = new Representantes(nombre,apellido,dnip,parentesco,correop,telefonop);
-        /*representantes.setNombre(nombre);
-        representantes.setApellido(apellido);
-        representantes.setDni(dnip);
-        representantes.setParentesco(parentesco);
-        representantes.setCorreo(correop);
-        representantes.setTelefono(telefonop);*/
-        
         Alumnos alumnos = new Alumnos();
         alumnos.setPrimer_nombre(nombre1);
         alumnos.setSegundo_nombre(nombre2);
@@ -235,35 +234,17 @@ public class Control extends HttpServlet
     private void buscarFichaAlumno(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         String dni = request.getParameter("dni");
-        System.out.println(dni);
-        Alumnos alumno = new Alumnos(dni);
-        alumno = this.alumnosServiceLocal.encontrarAlumnosPorDni(alumno);
-        System.out.println(alumno);
-    }
-    
-   /* private void datosForaneos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        System.out.println("Entro en las claves foraneas");
-
-            List <Alumnos> alumnos = this.alumnosServiceLocal.listarAlumnos();
-            //alumnos = this.alumnosServiceLocal.encontrarAlumnosPorId(alumnos);
-            System.out.println(alumnos);
-            this.imprimirRepresentantes(alumnos);
-            /*System.out.println("Representante: "+alumnos.getRepresentantes());
-            request.setAttribute("alumnos", alumnos);
-            request.getRequestDispatcher("/foranea.jsp").forward(request, response);
-    }
-    
-    
-    
-    private void imprimirRepresentantes(List<Alumnos> alumnos)
-    {
-        System.out.println("Entro en imprimir representantes");
-        for(Alumnos alumno:alumnos)
+        Alumnos alumnos = new Alumnos(dni,null);
+        Alumnos alumno = this.alumnosServiceLocal.encontrarAlumnosPorDni(alumnos);
+        List<Notas> notas = this.nsl.encontrarNotasPorDni(alumno);
+        request.setAttribute("alumno", alumno);
+        request.setAttribute("notas", notas);
+        for(Notas nota:notas)
         {
-            System.out.println("Alumnos: "+alumno.getRepresentantes());            
+            System.out.println(nota.getDocentes().getNombre());
         }
-    }*/
+        request.getRequestDispatcher("fichaAlumno.jsp").forward(request, response);
+    }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

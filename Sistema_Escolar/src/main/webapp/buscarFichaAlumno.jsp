@@ -24,7 +24,7 @@
                     </div>
 		</div>
 		<div class="contenedores_registros botones">
-                    <a href=""><input type="button" name="atras" value="Atras"></a>
+                    <a href="control"><input type="button" name="atras" value="Atras"></a>
                     <input type="submit" value="Buscar">
 		</div>
             </div>

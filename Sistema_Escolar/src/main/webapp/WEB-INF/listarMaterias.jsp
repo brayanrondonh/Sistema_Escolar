@@ -31,7 +31,7 @@
                     </table>
                 </div>
                 <div class="contenedores_registros botones">
-                    <a href="listado_materias.html"><input type="button" name="atras" value="Atras"></a>
+                    <a href="index.html"><input type="button" name="atras" value="Atras"></a>
                     <a href="agregarMaterias.jsp"><input type="button" name="atras" value="Agregar Materias"></a>
                 </div>
             </div>
@@ -41,31 +41,3 @@
     <script type="text/javascript" src="js/funciones.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-<!--
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <a href="agregarMaterias.jsp">Agregar materias</a>
-        <h1>Listar Materias</h1>
-        <table border="1">
-            <tr>
-                <th>Materia</th>
-            </tr>
-            <//c:forEach items="$materias}" var="materia">
-                <tr>
-                    <td><a href="materias?accion=consultar&id=$materia.id_materia}">$materia.materia}</a></td>
-                </tr>
-            <//c:forEach>
-        </table>
-    </body>
-</html>-->

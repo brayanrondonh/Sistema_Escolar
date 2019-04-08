@@ -11,6 +11,11 @@ body
 	background: #272f32;
 }
 
+input
+{
+	text-align: center;
+}
+
 #all
 {
 	width: 100%;
